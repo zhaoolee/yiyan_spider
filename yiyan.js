@@ -82,7 +82,8 @@ async function saveToJsonFile(c, obj) {
 
     fse.writeJsonSync(
       path.join(__dirname, "yiyan_data.json"),
-      current_json_data
+      current_json_data,
+      {encoding: 'utf8'},
     );
 
     console.log("写入数据:", obj);

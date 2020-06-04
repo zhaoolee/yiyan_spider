@@ -59,6 +59,7 @@ async function saveToJsonFile(c, obj) {
     fse.writeJsonSync(
       path.join(__dirname, "yiyan_data.json"),
       init_json,
+      {encoding: 'utf8'},
       err => {
         if (err) throw err;
         console.log("The file was succesfully saved!");

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "yiyan_start": "pm2 start index.js --no-daemon",
+    "yiyan_start": "pm2 start index.js",
     "yiyan_stop": "pm2 stop index.js",
     "yiyan_list": "pm2 list index.js"
   },

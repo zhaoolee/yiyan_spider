@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <title>json tree example</title>
+    <link href="./css/jsontree.css" rel="stylesheet">
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/jsontree.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+</body>
+<script>
+
+
+    $.ajax({
+        dataType: "json",
+        url: "./yiyan_data.json",
+        success: function(data){
+            console.log(data);
+            document.getElementById("example").innerHTML = JSONTree.create(data);
+        }
+    });
+
+
+</script>
+</html>

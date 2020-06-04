@@ -1,0 +1,25 @@
+{
+  "name": "yiyan_spider",
+  "version": "1.0.0",
+  "description": "一言的爬虫",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaoolee/yiyan_spider.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaoolee/yiyan_spider/issues"
+  },
+  "homepage": "https://github.com/zhaoolee/yiyan_spider#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "fs-extra": "^9.0.1"
+  }
+}

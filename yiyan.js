@@ -137,11 +137,11 @@ async function main() {
         let result = await getData(c_list[c_index]["c"]);
         await saveToJsonFile(c_list[c_index]["label"], result);
 
-        let time_num = randomNum(2000, 6000);
+        let time_num = randomNum(6000, 10000);
         console.log(
           "\n\n\n==>>" +
             c_list[c_index]["label"] +
-            "延时" +
+            "自动延时" +
             time_num +
             "毫秒<<<=="
         );

@@ -2,13 +2,13 @@
   "name": "yiyan_spider",
   "version": "1.0.0",
   "description": "一言的爬虫",
-  "main": "index.js",
+  "main": "yiyan.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "yiyan_start": "pm2 start index.js",
-    "yiyan_stop": "pm2 stop index.js",
-    "yiyan_list": "pm2 list index.js"
+    "start": "node yiyan.js",
+    "yiyan_start": "pm2 start yiyan.js",
+    "yiyan_stop": "pm2 stop yiyan.js",
+    "yiyan_list": "pm2 list yiyan.js"
   },
   "repository": {
     "type": "git",

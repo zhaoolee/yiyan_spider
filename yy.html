@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一言数据库</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h2></h2>
+<div class="alert alert-primary" role="alert" style="text-align: center">
+    一言数据库
+</div>
+<div id="yiyan"></div>
+
+
+<script>
+    $.get("./yiyan_data.json", function (res) {
+            console.log("==>>", res)
+
+            let labels = Object.keys(res);
+
+            let tmpHtml = "";
+            let tmpLabel = "";
+
+            for (let l = 0, labels_len = labels.length; l < labels_len; l++) {
+                let tmpLabelHeader = `<div class="card-header" id="heading${l}">
+                <h2 class="mb-0">
+                <button class="btn btn-block text-center" type="button" data-toggle="collapse" data-target="#collapse${l}" aria-expanded="true" aria-controls="collapse${l}">
+                    ${labels[l]} &nbsp;&nbsp;<span class="badge badge-success">${Object.keys(res[labels[l]]).length}</span>
+                </button>
+                </h2>
+                </div>`
+                let tmpLabelTable = "";
+                for (let n = 0, label_len = Object.keys(res[labels[l]]).length; n < label_len; n++) {
+                    let tmp_key = Object.keys(res[labels[l]])[n];
+                    tmpLabelTable += `<li class="list-group-item"></li>`;
+                    tmpLabelTable += `<div class="card-body">${res[labels[l]][tmp_key]["hitokoto"]}<span class="badge badge-primary">${res[labels[l]][tmp_key]["from"]}</span></div>`
+                }
+                tmpLabelTable = `<div id="collapse${l}" class="collapse" aria-labelledby="heading${l}" data-parent="#accordionExample">${tmpLabelTable}</div>`
+                tmpLabel += tmpLabelHeader;
+                tmpLabel += tmpLabelTable;
+            }
+
+            tmpHtml = `<div class="accordion" id="accordionExample">${tmpLabel} </div>`
+
+            $("#yiyan").html(tmpHtml);
+
+        }
+    )
+</script>
+
+</body>
+</html>

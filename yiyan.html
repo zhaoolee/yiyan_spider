@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一言数据库</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+
+
+
+<div id="yiyan"></div>
+
+
+<script>
+    $.get("./yiyan_data.json", function(res){
+            console.log("==>>",res)
+
+            let labels = Object.keys(res);
+
+            let tmpHtml = "";
+
+
+        let tmpLabel = "";
+
+        for(let l =0, labels_len = labels.length; l<labels_len; l++ ) {
+
+            let tmpLabelHeader = `<h3 style="padding: 0 10px">${labels[l]}<span class="label label-success pull-right">${Object.keys(res[labels[l]]).length}</span></h3>`;
+
+
+            let tmpLabelTable = "";
+
+            for(let n =0, label_len = Object.keys(res[labels[l]]).length; n <label_len; n++){
+
+                let tmp_key = Object.keys(res[labels[l]])[n];
+
+                tmpLabelTable += `<li class="list-group-item">${res[labels[l]][tmp_key]["hitokoto"]}<span class="badge">${res[labels[l]][tmp_key]["from"]}</span></li>`;
+
+            }
+
+            tmpLabelTable = `<ul class="list-group">${tmpLabelTable}</ul>`
+            tmpLabel += tmpLabelHeader;
+            tmpLabel += tmpLabelTable;
+        }
+
+        tmpHtml = tmpLabel
+
+
+
+        $("#yiyan").html(tmpHtml);
+
+        }
+    )
+</script>
+
+</body>
+</html>

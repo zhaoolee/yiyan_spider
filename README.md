@@ -21,12 +21,20 @@ https://www.baidufe.com/fehelper
 ![https://www.v2fy.com/yiyan_spider/yiyan_data.json](https://www.v2fy.com/asset/0i/yiyan_data.png)
 
 
-## 实时爬取的数据展示地址:
 
+## 简易版查看《一言数据库可视化1.0》
 
 ```
-https://v2fy.com/yiyan_spider/yiyan_data.json
+https://www.v2fy.com/yiyan_spider/yiyan.html
 ```
+
+## 折叠网页查看《一言数据库可视化2.0》
+
+```
+https://www.v2fy.com/yiyan_spider/yy.html
+```
+
+
 
 ## 使用方法:
 

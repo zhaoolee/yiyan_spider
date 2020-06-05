@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>一言数据库</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -17,7 +16,7 @@
 <body>
 <h2></h2>
 <div class="alert alert-primary" role="alert" style="text-align: center">
-    《一言》汇总
+    一言数据库 <span class="badge badge-success" id="all_num"></span>
 </div>
 <div id="yiyan"></div>
 
@@ -30,6 +29,7 @@
 
             let tmpHtml = "";
             let tmpLabel = "";
+            let all_num = 0;
 
             for (let l = 0, labels_len = labels.length; l < labels_len; l++) {
                 let tmpLabelHeader = `<div class="card-header" id="heading${l}">
@@ -41,6 +41,9 @@
                 </div>`
                 let tmpLabelTable = "";
                 for (let n = 0, label_len = Object.keys(res[labels[l]]).length; n < label_len; n++) {
+                    if(n === 0){
+                        all_num += label_len;
+                    }
                     let tmp_key = Object.keys(res[labels[l]])[n];
                     tmpLabelTable += `<li class="list-group-item"></li>`;
                     tmpLabelTable += `<div class="card-body">${res[labels[l]][tmp_key]["hitokoto"]}<span class="badge badge-primary">${res[labels[l]][tmp_key]["from"]}</span></div>`
@@ -54,20 +57,11 @@
 
             $("#yiyan").html(tmpHtml);
 
+            $("#all_num").html("共"+all_num+"句");
+
         }
     )
 </script>
-
-<script>
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?34564f2837e4e2fb61052ac26a09b689";
-      var s = document.getElementsByTagName("script")[0]; 
-      s.parentNode.insertBefore(hm, s);
-    })();
-    </script>
-    
 
 </body>
 </html>

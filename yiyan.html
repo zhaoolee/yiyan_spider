@@ -27,7 +27,7 @@
 
         for(let l =0, labels_len = labels.length; l<labels_len; l++ ) {
 
-            let tmpLabelHeader = `<h3 style="padding: 0 10px">${labels[l]}<span class="label label-success">${Object.keys(res[labels[l]]).length}</span></h3>`;
+            let tmpLabelHeader = `<h3 style="padding: 0 10px">${labels[l]}&nbsp;<span class="label label-success">${Object.keys(res[labels[l]]).length}</span></h3>`;
 
 
             let tmpLabelTable = "";
@@ -36,7 +36,7 @@
 
                 let tmp_key = Object.keys(res[labels[l]])[n];
 
-                tmpLabelTable += `<li class="list-group-item">${res[labels[l]][tmp_key]["hitokoto"]}<span class="badge">${res[labels[l]][tmp_key]["from"]}</span></li>`;
+                tmpLabelTable += `<li class="list-group-item">${res[labels[l]][tmp_key]["hitokoto"]}<span class="badge" style="float: none">${res[labels[l]][tmp_key]["from"]}</span></li>`;
 
             }
 
